@@ -109,20 +109,12 @@ var Twison = {
       dict.props = props;
     }
 
-    ["name", "pid", "position", "tags"].forEach(function(attr) {
+    ["name", "pid", "tags"].forEach(function(attr) {
       var value = passage.attributes[attr].value;
       if (value) {
         dict[attr] = value;
       }
     });
-
-    if(dict.position) {
-      var position = dict.position.split(',')
-      dict.position = {
-        x: position[0],
-        y: position[1]
-      }
-    }
 
     if (dict.tags) {
       dict.tags = dict.tags.split(" ");
@@ -148,7 +140,7 @@ var Twison = {
       passages: convertedPassages
     };
 
-    ["name", "startnode", "creator", "creator-version", "ifid"].forEach(function(attr) {
+    ["name", "startnode"].forEach(function(attr) {
       var value = story.attributes[attr].value;
       if (value) {
         dict[attr] = value;
